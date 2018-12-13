@@ -117,7 +117,7 @@ h6 {font-size:17px;text-transform:uppercase;padding:0 0 23px;}
 .btn.color:hover,.btn.color:focus,.btn.white:hover,.btn.white:focus {background:#191F26 !important;color:#fff !important;}
 .btn.black:hover,.btn.black:focus,.cta .btn:hover,.cta .btn:focus 	{background:#fff !important;color:#191F26 !important;}
 
-.more 				{font-weight:600;padding-top:2px;display:inline-block;position:relative;text-decoration:none;}
+.more 				{font-weight:600;padding-top:10px;display:inline-block;position:relative;text-decoration:none;}
 .more:after 			{content:"";position:absolute;left:0;bottom:-3px;opacity:0;-ms-opacity:0;width:0;}
 .more:hover:after,
 .more:focus:after 		{opacity:1;-ms-opacity:1;width:100%;}
@@ -196,7 +196,7 @@ h6 {font-size:17px;text-transform:uppercase;padding:0 0 23px;}
 .services.boxed .details						{text-align:left;padding:25px 30px;border-right:1px solid #DFDFD0;}
 .services.boxed article:last-child .details 	{border:none;}
 .services.boxed .details h4					{text-transform:uppercase;}
-.services.boxed .details h4 a 					{color:#191F26;}
+.services.boxed .details h4 a 					{color:#191F26;font-size: medium;}
 
 .services.iconic	{padding:68px 0 30px;}
 .services.iconic h3	{text-transform:uppercase;font-size:17px;padding:0 0 10px;}
