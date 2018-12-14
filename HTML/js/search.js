@@ -16,12 +16,20 @@
 
 	$('#submit').click(function (e) {
 		if ($("input:radio[name='radio']:checked").val() === 'return') {
-			$('input:text[name=ret-date]').attr('required', '')
+			$('input:text[name=ret-date]').attr('required', '');
+			$('input:text[name=ret-pick-up-location]').attr('required', '');
+			$('input:text[name=ret-pick-off-location]').attr('required', '');
 			$('#ret-date-err-cont').show();
+			$('#ret-pick-up-location-err-cont').show();
+			$('#ret-pick-off-location-err-cont').show();
 		}
 		else if ($("input:radio[name='radio']:checked").val() === 'oneway') {
 			$('input:text[name=ret-date]').removeAttr('required');
+			$('input:text[name=ret-pick-up-location]').removeAttr('required');
+			$('input:text[name=ret-pick-off-location]').removeAttr('required');
 			$('#ret-date-err-cont').hide();
+			$('#ret-pick-up-location-err-cont').hide();
+			$('#ret-pick-off-location-err-cont').hide();
 		}
 
 		if ($('#booking-section').parsley().validate()) {
