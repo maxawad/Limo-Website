@@ -9,9 +9,9 @@ function isEmail($email) {
 
 if (!defined("PHP_EOL")) define("PHP_EOL", "\r\n");
 
-$name     = $_POST['name'];
-$email    = $_POST['email'];
-$comments = $_POST['comments'];
+$name     = isset($_POST['name']) ? str_replace(array("\r", "\n"), ' ', $_POST['name']) : '';
+$email    = isset($_POST['email']) ? trim($_POST['email']) : '';
+$comments = isset($_POST['comments']) ? $_POST['comments'] : '';
 
 if(trim($name) == '') {
 	echo '<div class="error_message">Attention! You must enter your name.</div>';
@@ -30,7 +30,7 @@ if(trim($comments) == '') {
 	exit(); 
 }
 
-if(get_magic_quotes_gpc()) {
+if(function_exists('get_magic_quotes_gpc') && @get_magic_quotes_gpc()) {
 	$comments = stripslashes($comments);
 }
 
@@ -39,7 +39,7 @@ if(get_magic_quotes_gpc()) {
 // Enter the email address that you want to emails to be sent to.
 // Example $address = "joe.doe@yourdomain.com";
 
-$address = "joe.doe@yourdomain.com";
+$address = getenv('CONTACT_FORM_TO') ?: "joe.doe@yourdomain.com";
 
 // Configuration option.
 // i.e. The standard subject will appear as, "You've been contacted by John Doe."
@@ -72,7 +72,7 @@ if(mail($address, $e_subject, $msg, $headers)) {
 	echo "<fieldset>";			
 	echo "<div id='success_page' class='box'>";
 	echo "<h6>Email Sent Successfully.</h6>";
-	echo "<p>Thank you $name, your message has been submitted to us.</p>";
+	echo "<p>Thank you " . htmlspecialchars($name, ENT_QUOTES, 'UTF-8') . ", your message has been submitted to us.</p>";
 	echo "</div>";
 	echo "</fieldset>";
 } 
